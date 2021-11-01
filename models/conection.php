@@ -13,7 +13,7 @@ class Conection{
         else{
             echo "Connected <br>";
             
-            $con = new PDO('mysql:host=localhost; dbname=dblogin', 'root', '');
+            $con = new PDO('mysql:host=localhost; dbname=dbcrud', 'root', '');
         }
         return $con;
     }
