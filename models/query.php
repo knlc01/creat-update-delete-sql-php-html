@@ -38,13 +38,15 @@ class QueryClass{
         include("setting.php");
         $mysqli = new mysqli($server, $user, $pass, $bd);
         $queryPersons = "SELECT * FROM persons WHERE id='$id'";
-        if($mysqli->query($queryPersons)){
+        $result = mysqli_query($mysqli,$queryPersons);
+        if(mysqli_num_rows($result)>0){
             return true;
         }
         else{
             return false;
         }
     }
+    
     function updatePerson($id,$name,$lastName,$age){
         include("setting.php");
         $mysqli = new mysqli($server, $user, $pass, $bd);
@@ -76,6 +78,7 @@ class QueryClass{
                 }
             }
         }
+        header("location: ../update");
     }
 
     function deletePerson($id){
